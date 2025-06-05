@@ -1,0 +1,25 @@
+#kanban-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.kanban-column {
+    width: calc(25% - 30px) !important;
+    min-height: 100px;
+    height: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    box-sizing: border-box;
+}
+
+.float-left {
+    float: left;
+}
+
+.draggable {
+    position: relative;
+    width: 100%;
+    border-color: #d9b310;
+    border-width: 3px;
+}

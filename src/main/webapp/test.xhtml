@@ -7,15 +7,60 @@
 
     <h:head>
         <title>PrimeFaces Test</title>
-        <h:outputScript name="test.js" />
-        <h:outputStylesheet name="test.css" />
+            <h:outputScript name="kanban.js"/>
+    <h:outputStylesheet name="header.css" />
+    <h:outputStylesheet name="kanban.css" />
     </h:head>
     <h:body>
 
         <h1>#{testView.string}</h1>
-        <h:form id="frmTest">
+        <h:form id="kanban-form">
+        <p:outputPanel id="kanban-container">
 
-        </h:form>
+            <p:panel id="todo" styleClass="float-left kanban-column" header="Todo" menuTitle="Todo" closable="true"
+                toggleable="true" widgetVar="todo">
+                <p:card id="c4" header="ORC-4" title="The Title" rendered="true" styleClass="draggable">
+                    <p>This is a test 4</p>
+                </p:card>
+                <p:draggable for="c4" revert="true" snap="true" snapMode="both" snapTolerance="21" onDrag="dragging(this)"/>
+            </p:panel>
+            <p:droppable for="todo" revert="true">
+                <p:ajax listener="#{kanbanView.onDrop}"/>
+            </p:droppable>
+
+            <p:panel id="inProgress" styleClass="float-left kanban-column" header="In Progress">
+                <p:card id="c3" header="ORC-3" title="The Title" rendered="true" styleClass="draggable">
+                    <p>This is a test 3</p>
+                </p:card>
+                <p:draggable for="c3" revert="true" snap="true" snapMode="both" snapTolerance="21" onDrag="dragging(this)"/>
+            </p:panel>
+            <p:droppable for="inProgress" revert="true">
+                <p:ajax listener="#{kanbanView.onDrop}" />
+            </p:droppable>
+
+            <p:panel id="inReview" styleClass="float-left kanban-column" header="In Review">
+                <p:card id="c2" header="ORC-2" title="The Title" rendered="true" styleClass="draggable">
+                    <p>This is a test 2</p>
+                </p:card>
+                <p:draggable for="c2" revert="true" snap="true" snapMode="both" snapTolerance="21" onDrag="dragging(this)"/>
+            </p:panel>
+            <p:droppable for="inReview" revert="true">
+                <p:ajax listener="#{kanbanView.onDrop}" />
+            </p:droppable>
+
+            <p:panel id="done" styleClass="float-left kanban-column" header="Done">
+                <p:card id="c1" header="ORC-1" title="The Title" rendered="true" styleClass="draggable">
+                    <p>This is a test 1</p>
+                </p:card>
+                <p:draggable for="c1" revert="true" snap="true" snapMode="both" snapTolerance="21" onDrag="dragging(this)"/>
+            </p:panel>
+            <p:droppable for="done" revert="true">
+                <p:ajax listener="#{kanbanView.onDrop}" />
+            </p:droppable>
+
+
+        </p:outputPanel>
+    </h:form>
 
     </h:body>
 </html>
