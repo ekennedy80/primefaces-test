@@ -8,16 +8,17 @@ import org.primefaces.model.dashboard.DashboardModel;
 import org.primefaces.model.dashboard.DefaultDashboardModel;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
-import jakarta.faces.view.ViewScoped;
+// import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import lombok.Data;
 
 
 @Data
 @Named
-@ViewScoped
+@ApplicationScoped
 public class KanbanView {
 
     private static final String STYLE_CLASS = "col-12 lg:col-6 xl:col-4";
